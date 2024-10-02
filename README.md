@@ -11,3 +11,8 @@ This tool is intended to make custom skins an easier process. By cutting up any 
 To use, simply type "python3 ./skin-cutter.py HumanMaleSkin00_00.png" and the resulting facial upper, lower, and pelvis files should be created.
 
 This tool currently only handles PNGs. To bulk convert check out PNG2BLP.
+
+You can use the find command in Linux to recursively run the skin-cutter.py script for all PNG files in the current directory and its subdirectories. Here's the command:
+
+find . -type f -name "*.png" -exec python3 skin-cutter.py {} \;
+
