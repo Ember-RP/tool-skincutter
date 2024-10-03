@@ -14,4 +14,4 @@ This tool currently only handles PNGs. To bulk convert check out PNG2BLP.
 
 You can use the find command in Linux to recursively run the skin-cutter.py script for all PNG files in the current directory and its subdirectories. Here's the command:
 
-find . -type f -name "*.png" -exec python3 skin-cutter.py {} \;
+find . -type f -name "*.png" -exec python3 skin-cutter.py {} \\;
