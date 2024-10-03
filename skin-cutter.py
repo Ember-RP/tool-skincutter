@@ -41,6 +41,11 @@ def process_image(file_path):
         print(f"File {file_path} does not have a square aspect ratio.")
         return
 
+    # Convert the source image to 8-bit depth and save it
+    image = image.convert('P', palette=Image.ADAPTIVE)
+    image.save(file_path)
+    print(f"Converted and saved source file {file_path} to 8-bit depth.")
+
     # Define the base size (512x512) and the pieces to cut
     base_size = 512
     pieces = [
@@ -59,6 +64,10 @@ def process_image(file_path):
         x = int(base_x * scale_factor)
         y = height - int(base_y * scale_factor) - piece_height  # Adjust y-coordinate from bottom left
         piece = image.crop((x, y, x + piece_width, y + piece_height))
+        
+        # Convert the piece to 8-bit depth
+        piece = piece.convert('P', palette=Image.ADAPTIVE)
+        
         piece_file_name = f"{terms[0]}{terms[1]}{piece_name}{number_suffix}.png"
         piece.save(piece_file_name)
         print(f"Saved {piece_file_name}")
